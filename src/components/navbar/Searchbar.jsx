@@ -70,18 +70,7 @@ const Searchbar = () => {
 
       {/* search Results */}
       <Zoom in={opened} direction="up">
-        <Box
-          sx={{
-            backgroundColor: "#fff",
-            color: "#000",
-            zIndex: 9999,
-            paddingBlock: "30px",
-            position: "absolute",
-            boxShadow: "5px 5px 5px #dfe6e9",
-            width: "250px",
-            height: "max-content",
-            borderEndRadius: "10px",
-          }}>
+        <Box sx={styles.resultWrapper}>
           <Box>
             {loading ? (
               <Loader
@@ -97,14 +86,7 @@ const Searchbar = () => {
                     navigate(`/pokemon/${pokemonData?.id}/`);
                     setOpened(false);
                   }}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    cursor: "pointer",
-                    "&:hover": {
-                      background: "#f5f4f4",
-                    },
-                  }}>
+                  sx={styles.resultElement}>
                   <Box sx={{ width: "50px", height: "50px" }}>
                     <img
                       src={pokemonData?.sprites?.front_default}
@@ -119,15 +101,7 @@ const Searchbar = () => {
               </Grid>
             ) : (
               <Grid key={1} xs={12}>
-                <Typography
-                  variant="h6"
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    opacity: "0.5",
-                  }}>
+                <Typography variant="h6" sx={styles.noResult}>
                   Sorry , there is no results
                 </Typography>{" "}
               </Grid>
